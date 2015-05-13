@@ -12,4 +12,5 @@
         <item name="watch_name6">titan3</item>
         <item name="watch_name7">titan4</item>
     </string-array>
+    <string name="title_activity_second">secondActivity</string>
 </resources>
