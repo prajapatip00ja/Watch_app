@@ -12,5 +12,15 @@
         <item name="watch_name6">titan3</item>
         <item name="watch_name7">titan4</item>
     </string-array>
+    <string-array name="description_array">
+        <item name="watch_name1">no. 1 watch company</item>
+        <item name="watch_name2">stylish watches</item>
+        <item name="watch_name3">costly long lasting watch</item>
+        <item name="watch_name4">costly long lasting watch</item>
+        <item name="watch_name5">costly long lasting watch</item>
+        <item name="watch_name6">costly long lasting watch</item>
+        <item name="watch_name7">costly long lasting watch</item>
+    </string-array>
     <string name="title_activity_second">secondActivity</string>
+    <string name="title_activity_watch_detail">WatchDetailActivity</string>
 </resources>

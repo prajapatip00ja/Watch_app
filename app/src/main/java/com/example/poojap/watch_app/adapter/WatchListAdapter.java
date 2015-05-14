@@ -16,16 +16,19 @@ import com.example.poojap.watch_app.R;
  */
 public class WatchListAdapter extends ArrayAdapter {
     private LayoutInflater inflater;
-    String[] wathes = getContext().getResources().getStringArray(R.array.watch_array);
-    int[] images = new int[]{R.drawable.watch1,R.drawable.watch1,R.drawable.watch1,R.drawable.watch1,R.drawable.watch1,R.drawable.watch1,R.drawable.watch1};
+    private String[] wathes;
+    private int[] images;
+    private String[] description;
 
 
-    public WatchListAdapter(Activity activity, Object[] objects) {
-        super(activity,0,objects);
+    public WatchListAdapter(Activity activity, String[] watches, int[] images,String[] description) {
+        super(activity,0,watches);
         inflater = activity.getWindow().getLayoutInflater();
+        this.images = images;
+        this.wathes = watches;
+        this.description = description;
+
     }
-
-
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
