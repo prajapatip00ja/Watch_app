@@ -7,6 +7,8 @@
     <ImageView
         android:id="@id/image_container"
         android:layout_width="205dp"
+        android:onClick="getDescription"
+        android:clickable="true"
         android:layout_height="match_parent">
 
     </ImageView>
