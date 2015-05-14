@@ -13,4 +13,5 @@
         <item name="watch_name7">titan4</item>
     </string-array>
     <string name="title_activity_second">secondActivity</string>
+    <string name="title_activity_watch_detail">WatchDetailActivity</string>
 </resources>

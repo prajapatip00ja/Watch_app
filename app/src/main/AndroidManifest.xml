@@ -20,6 +20,10 @@
             android:name=".secondActivity"
             android:label="@string/title_activity_second" >
         </activity>
+        <activity
+            android:name=".WatchDetailActivity"
+            android:label="@string/title_activity_watch_detail" >
+        </activity>
     </application>
 
 </manifest>
