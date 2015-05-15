@@ -1,19 +1,18 @@
 package com.example.poojap.watch_app;
-import android.app.ListActivity;
+
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Layout;
-import android.util.Log;
+
+import android.widget.AdapterView;
+import android.widget.GridView;
 import android.view.View;
 
-import android.widget.ListView;
-import android.widget.TextView;
-
-import com.example.poojap.watch_app.adapter.WatchListAdapter;
+import adapters.WatchListAdapter;
 
 
-public class WatchListingActivity extends ListActivity {
-    private String[] wathes;
+public class WatchListingActivity extends Activity {
+    private String[] watches = new String[]{"p1","p2","p3","p4","p5"};
     private int[] images;
     private String[] description;
 
@@ -21,26 +20,19 @@ public class WatchListingActivity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_watch_listing);
-        this.wathes = getResources().getStringArray(R.array.watch_array);
-        this.images = new int[]{R.drawable.watch1,R.drawable.watch1,R.drawable.watch1,R.drawable.watch1,R.drawable.watch1,R.drawable.watch1,R.drawable.watch1};
-        this.description = getResources().getStringArray(R.array.description_array);
-        WatchListAdapter watchListAdapter = new WatchListAdapter(this,wathes,images,description);
-        setListAdapter(watchListAdapter);
+        GridView gridView = (GridView) findViewById(R.id.grid_view);
+        WatchListAdapter watchListAdapter = new WatchListAdapter(this, watches);
+        gridView.setAdapter(watchListAdapter);
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> adapterView,View view,int position,long id){
+                Intent intent = new Intent(getApplicationContext(),WatchDetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("watch", watches[position]);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
 
-    }
-
-    @Override
-    protected void onListItemClick(ListView l, View v, int position, long id) {
-       Intent intent = new Intent(this,WatchDetailActivity.class);
-       this.wathes = getResources().getStringArray(R.array.watch_array);
-       this.images = new int[]{R.drawable.watch1,R.drawable.watch1,R.drawable.watch1,R.drawable.watch1,R.drawable.watch1,R.drawable.watch1,R.drawable.watch1};
-       this.description = getResources().getStringArray(R.array.description_array);
-
-       Bundle bundle = new Bundle();
-       bundle.putString("watch",wathes[position]);
-       bundle.putInt("image",images[position]);
-       bundle.putString("description",description[position]);
-       intent.putExtras(bundle);
-       startActivity(intent);
     }
 }

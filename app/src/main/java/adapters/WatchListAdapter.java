@@ -1,19 +1,18 @@
-package com.example.poojap.watch_app.adapter;
+package adapters;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.poojap.watch_app.R;
 
-/**
- * Created by poojap on 13/05/15.
- */
+import java.lang.reflect.Array;
+
+
 public class WatchListAdapter extends ArrayAdapter {
     private LayoutInflater inflater;
     private String[] wathes;
@@ -21,13 +20,10 @@ public class WatchListAdapter extends ArrayAdapter {
     private String[] description;
 
 
-    public WatchListAdapter(Activity activity, String[] watches, int[] images,String[] description) {
-        super(activity,0,watches);
+    public WatchListAdapter(Activity activity, String[] wathes) {
+        super(activity,0,wathes);
+        this.wathes=wathes;
         inflater = activity.getWindow().getLayoutInflater();
-        this.images = images;
-        this.wathes = watches;
-        this.description = description;
-
     }
 
     @Override
@@ -38,8 +34,6 @@ public class WatchListAdapter extends ArrayAdapter {
         }
         TextView tv = (TextView) row.findViewById(R.id.src_text);
         tv.setText(wathes[position]);
-        ImageView iv = (ImageView)row.findViewById(R.id.image_container);
-        iv.setImageResource(images[position]);
         return row;
     }
 
